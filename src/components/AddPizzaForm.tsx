@@ -16,6 +16,12 @@ const AddPizzaForm: FC = () => {
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     console.log(e.target);
+    const { name, value } = e.target;
+
+    setNewPizza({
+      ...newPizza,
+      [name]: value,
+    });
   };
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
