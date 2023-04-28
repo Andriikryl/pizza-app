@@ -17,12 +17,21 @@ const App: React.FC = () => {
     );
   };
 
+  const deletPizza = (id: number) => {
+    const newPizzasList = pizzasList.filter((pizza) => pizza.id !== id);
+    setPizzasList(newPizzasList);
+  };
+
   return (
     <div className="App">
       <div className="wrap">
         <span className="headeing">Our pizza</span>
         <AddPizzaForm addPizza={addPizza} />
-        <DisplayPizzas pizzasList={pizzasList} updatePizza={updatePizza} />
+        <DisplayPizzas
+          pizzasList={pizzasList}
+          deletPizza={deletPizza}
+          updatePizza={updatePizza}
+        />
       </div>
     </div>
   );

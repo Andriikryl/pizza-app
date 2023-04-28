@@ -6,13 +6,22 @@ import EditPizzaForm from "./EditPizzaForm";
 interface SinglePizzaProps {
   pizza: Pizza;
   updatePizza: (newPizza: Pizza) => void;
+  deletPizza: (id: number) => void;
 }
 
-const SinglePizza: FC<SinglePizzaProps> = ({ pizza, updatePizza }) => {
+const SinglePizza: FC<SinglePizzaProps> = ({
+  pizza,
+  updatePizza,
+  deletPizza,
+}) => {
   const [edit, setEdit] = useState<boolean>(false);
 
   const handleToggleEdit = () => {
     setEdit(!edit);
+  };
+
+  const handelDelite = () => {
+    deletPizza(pizza.id);
   };
 
   return (
@@ -23,7 +32,7 @@ const SinglePizza: FC<SinglePizzaProps> = ({ pizza, updatePizza }) => {
 
       <div className="pizza-controls">
         <AiFillEdit onClick={handleToggleEdit} />
-        <AiFillDelete />
+        <AiFillDelete onClick={handelDelite} />
       </div>
 
       {edit ? (
