@@ -41,6 +41,7 @@ const AddPizzaForm: FC<AddPizzaFormProps> = ({ addPizza }) => {
         price: Number(price),
         id: Date.now(),
       });
+      setNewPizza(initState);
     }
   };
 
